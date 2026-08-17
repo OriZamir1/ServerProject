@@ -11,8 +11,11 @@ print("listening")
 client_socket, client_address = server_socket.accept()
 print(f"connected to: {client_address}")
 
-data = client_socket.recv(1024)
-print(f"received {data.decode()}")
+while True:
+    data = client_socket.recv(1024)
+    if not data:
+        break
+    print(f"received {data.decode()}")
 
 client_socket.close()
 server_socket.close()
