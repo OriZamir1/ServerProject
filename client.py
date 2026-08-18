@@ -7,7 +7,7 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(('127.0.0.1', 5000))
 
 user_name = input("enter username: ")
-
+client_socket.send(user_name.encode())
 def receive_message():
     while True:
         data = client_socket.recv(1024)
